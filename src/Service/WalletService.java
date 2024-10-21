@@ -70,4 +70,12 @@ public class WalletService {
             System.out.println(walletDao.getAccountMap().get(accountNum).getBalance());
         }
     }
+
+    public void setWalletDao(WalletDao walletDao) {
+        this.walletDao = walletDao;
+    }
+
+    public WalletDao getWalletDao() {
+        return walletDao;
+    }
 }

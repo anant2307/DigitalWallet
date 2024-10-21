@@ -30,8 +30,16 @@ public class Driver {
                 case 2 -> {
                     System.out.println("Enter sender's account number: ");
                     int fromAccount = scanner.nextInt();
+                    if(!ws.getWalletDao().getAccountMap().containsKey(fromAccount)){
+                        System.out.println("Account not found");
+                        continue;
+                    }
                     System.out.println("Enter recipient's account number: ");
                     int toAccount = scanner.nextInt();
+                    if(!ws.getWalletDao().getAccountMap().containsKey(toAccount)){
+                        System.out.println("Account not found");
+                        continue;
+                    }
                     System.out.println("Enter transfer amount: ");
                     double transferAmount = scanner.nextDouble();
                     ws.transfer(fromAccount, toAccount, transferAmount);
