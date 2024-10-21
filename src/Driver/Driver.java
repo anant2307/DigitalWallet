@@ -16,7 +16,7 @@ public class Driver {
             System.out.println("4. Overview");
             System.out.println("5. Exit");
             switch (scanner.nextInt()) {
-                case 1:
+                case 1 -> {
                     System.out.println("Enter name: ");
                     String name = scanner.next();
                     System.out.println("Enter email: ");
@@ -26,8 +26,8 @@ public class Driver {
                     System.out.println("Enter initial amount: ");
                     double amount = scanner.nextDouble();
                     ws.createWallet(name, email, phoneNumber, amount);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("Enter sender's account number: ");
                     int fromAccount = scanner.nextInt();
                     System.out.println("Enter recipient's account number: ");
@@ -35,21 +35,23 @@ public class Driver {
                     System.out.println("Enter transfer amount: ");
                     double transferAmount = scanner.nextDouble();
                     ws.transfer(fromAccount, toAccount, transferAmount);
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("Enter account number:");
                     ws.statement(scanner.nextInt());
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     System.out.println("Overview");
                     ws.overview();
-                    break;
-                case 5:
+                }
+                case 5 -> {
                     System.out.println("Exiting...");
                     System.exit(0);
-                default:
+                }
+                default -> {
                     System.out.println("Invalid option. Please try again.");
                     continue outer;
+                }
             }
         }
     }
